@@ -38,8 +38,10 @@ constexpr uint8_t PIN_FLOAT_MAX = 33;
 constexpr uint8_t PIN_LED       = 2;
 // RTC DS3231 su I2C: SDA = 21, SCL = 22
 
-// La maggior parte delle schede relè si attiva con il pin a LOW
-constexpr bool RELAY_ACTIVE_LOW = true;
+// Scheda relè 5V con jumper H/L impostati su H: il relè si attiva con il pin a HIGH.
+// Così, durante avvio e reset (pin non ancora pilotati), i relè restano spenti.
+// Con una scheda a trigger basso, impostare true.
+constexpr bool RELAY_ACTIVE_LOW = false;
 
 // ---------------- Vasca ----------------
 constexpr float TANK_MAX_L     = 4.0f;  // volume massimo preparato in un lotto
